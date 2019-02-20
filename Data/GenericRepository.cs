@@ -64,6 +64,11 @@ namespace MovieReviewSPA.web.Data
             Delete(entity);
         }
 
+        public virtual void Commit()
+        {
+            _dbContext.SaveChanges();
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
