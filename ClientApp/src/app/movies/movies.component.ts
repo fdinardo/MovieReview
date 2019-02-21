@@ -12,11 +12,9 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class MoviesComponent implements OnInit {
 
-  private getMoviesUrl = environment.apiUrl + 'api/movies';
-
   movies: Movie[] = [];
 
-  constructor(private _service: MovieService,) { }
+  constructor(private _service: MovieService, ) { }
 
   ngOnInit() {
     this.getMovies()
