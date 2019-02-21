@@ -31,6 +31,8 @@ namespace MovieReviewSPA.web
                     options.UseSqlServer(Configuration.GetConnectionString("MovieReview"))
                 );
 
+            services.AddCors();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the Angular files will be served from this directory
@@ -47,6 +49,12 @@ namespace MovieReviewSPA.web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, InitialData seedDbContext)
         {
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

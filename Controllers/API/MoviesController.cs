@@ -28,6 +28,7 @@ namespace MovieReviewSPA.web.Controllers.API
                     /*fixformat ignore:start */
                     Id = m.Id,
                     MovieName = m.MovieName,
+                    MovieCover = m.MovieCover,
                     DirectorName = m.DirectorName,
                     ReleaseYear = m.ReleaseYear,
                     NoOfReviews = m.Reviews.Count()

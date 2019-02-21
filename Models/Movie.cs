@@ -18,6 +18,7 @@ namespace MovieReviewSPA.web.Models
         [Required]
         [StringLength(10)]
         public string ReleaseYear { get; set; }
+        public string MovieCover { get; set; }
         public virtual ICollection<MovieReview> Reviews { get; set; }
     }
 }
