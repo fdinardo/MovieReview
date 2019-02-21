@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { MovieService } from './../_services/movie.service';
+import { Movie } from './../models/movie';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs/internal/Observable';
+
 
 @Component({
   selector: 'app-movies',
@@ -8,18 +11,20 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
+
   private getMoviesUrl = environment.apiUrl + 'api/movies';
 
-  movies: object;
+  movies: Movie[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private _service: MovieService,) { }
 
   ngOnInit() {
-    this.http.get(this.getMoviesUrl)
-      .subscribe(data => {
-        this.movies = data;
-        console.log(data);
-      });
+    this.getMovies()
+      .subscribe(data => this.movies = data);
+  }
+
+  getMovies(): Observable<Movie[]> {
+    return this._service.getAll();
   }
 
 }

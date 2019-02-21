@@ -1,14 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div *ngFor="let movie of this.movies" class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" [src]="movie.movieCover ? movie.movieCover : 'assets/img/video.png'"
-          alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.movieName }}</h5>
-          <p class="card-text">Reviews: {{ movie.noOfReviews }}</p>
-          <a href="#" class="btn btn-primary">View</a>
-        </div>
+<div class="row">
+  <div *ngFor="let movie of this.movies" class="col-md-3">
+    <div class="card">
+      <img
+        class="card-img-top"
+        [src]="movie.movieCover ? movie.movieCover : 'assets/img/video.png'"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.movieName }}</h5>
+        <p class="card-text">Reviews: {{ movie.noOfReviews }}</p>
+        <p class="card-text">Director: {{ movie.directorName }}</p>
+        <a href="#" class="btn btn-primary">
+          View
+        </a>
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { NewMovieComponent } from './new-movie/new-movie.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     NavMenuComponent,
     MoviesComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    NewMovieComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'movies', component: MoviesComponent },
+      { path: 'movies/new', component: NewMovieComponent }
     ])
   ],
   providers: [],
